@@ -308,7 +308,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     // Animation Event 处理攻击动画事件
     void Hit()
     {
-        if (attackTarget != null)
+        // 判定主角是否在自己正前方的扇区
+        if (attackTarget != null && transform.IsFacingTarget(attackTarget.transform))
         {
             var targetStats = attackTarget.GetComponent<CharacterStats>();
 
