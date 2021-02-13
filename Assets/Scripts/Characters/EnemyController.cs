@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     private Collider coll;
 
 
-    private CharacterStats characterStats;
+    protected CharacterStats characterStats;
 
     [Header("Basic Settings")]
     public float sightRadius;// 可视范围
