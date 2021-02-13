@@ -12,6 +12,7 @@ using UnityEngine;
 // 第19讲 播放死亡动画
 // 第20讲 泛型单例模式
 // 第21讲 观察者模式
+// 第27讲 粒子系统
 public class ReadMe : MonoBehaviour
 {
     // Start is called before the first frame update

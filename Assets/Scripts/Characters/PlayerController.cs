@@ -107,8 +107,24 @@ public class PlayerController : MonoBehaviour
     // Animation Event 处理攻击动画事件
     void Hit()
     {
-        var targetStats = attackTarget.GetComponent<CharacterStats>();
+        if (attackTarget.CompareTag("Attackable"))
+        {
+            // 主角攻击石头人扔出的石头 把石头扔回石头人
+            if (attackTarget.GetComponent<Rock>() && attackTarget.GetComponent<Rock>().rockStates == Rock.RockStates.HitNothing)
+            {
+                attackTarget.GetComponent<Rock>().rockStates = Rock.RockStates.HitEnemy;
+                
+                attackTarget.GetComponent<Rigidbody>().velocity = Vector3.one;
+                // 给石头一个冲击力
+                attackTarget.GetComponent<Rigidbody>().AddForce(transform.forward * 20, ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            var targetStats = attackTarget.GetComponent<CharacterStats>();
+            targetStats.TakeDamage(characterStats, targetStats);
 
-        targetStats.TakeDamage(characterStats, targetStats);
+        }
+        
     }
 }

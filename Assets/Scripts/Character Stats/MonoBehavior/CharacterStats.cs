@@ -63,6 +63,23 @@ public class CharacterStats : MonoBehaviour
         //TODO: 更新经验
     }
 
+    // Damage 伤害值, 函数重载
+    public void TakeDamage(int damage, CharacterStats defener)
+    {
+        int currentDamage = Mathf.Max(damage - defener.CurrentDefence, 0);
+        // Debug.Log("TakeDamage 2 CurrentHealth = " + (CurrentHealth));
+        // Debug.Log("TakeDamage 2 damage = " + (damage));
+        CurrentHealth = Mathf.Max(CurrentHealth - currentDamage, 0);
+
+        // if (attacker.isCritical)
+        // {
+        //     defener.GetComponent<Animator>().SetTrigger("Hit");
+        // }
+
+        // //TODO: 更新血量UI
+        // //TODO: 更新经验
+    }
+
     private int CurrentDamage()
     {
         float coreDamage = UnityEngine.Random.Range(attackData.minDamage, attackData.maxDamage);
