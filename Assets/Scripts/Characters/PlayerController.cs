@@ -15,13 +15,16 @@ public class PlayerController : MonoBehaviour
     private float lastAttackTime;  //上一次攻击时间点
     private bool isDead;
 
-
+    // 主角移动停止位置, 1表示距离选中的点1的时候就停下来
+    private float stopDistance;
 
     void Awake() {
         agent = GetComponent<NavMeshAgent>();
         anim  = GetComponent<Animator>();
 
         characterStats = GetComponent<CharacterStats>();
+
+        stopDistance = agent.stoppingDistance;
     }
 
     void Start() {
@@ -56,6 +59,9 @@ public class PlayerController : MonoBehaviour
         StopAllCoroutines();
         if (isDead) return;
 
+        // 日常移动的时候结束距离要还原默认值，不用攻击距离
+        agent.stoppingDistance = stopDistance;
+
         agent.isStopped   = false;
         agent.destination = target;
     }
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void EventAttack(GameObject target)
     {
         if (isDead) return;
-        
+
         if (target != null){
             attackTarget = target;
             characterStats.isCritical = UnityEngine.Random.value < characterStats.attackData.criticalChance;
@@ -74,6 +80,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator MoveToAttackTarget()
     {
         agent.isStopped = false;
+        // 攻击的时候移动的结束距离改成攻击范围
+        agent.stoppingDistance = characterStats.attackData.attackRange;
+
 
         transform.LookAt(attackTarget.transform);
         

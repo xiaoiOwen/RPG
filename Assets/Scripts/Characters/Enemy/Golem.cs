@@ -9,6 +9,9 @@ public class Golem : EnemyController
     [Header("Skill")]
     public float kickForce = 25;
 
+    public GameObject rockPrefab;
+    public Transform  handPos;
+
     // 石头人把主角击飞
     public void KickOff()
     {
@@ -26,6 +29,16 @@ public class Golem : EnemyController
 
             // 产生伤害
             targetStats.TakeDamage(characterStats, targetStats);
+        }
+    }
+
+    // Animation Event
+    public void ThrowRock()
+    {
+        if (attackTarget != null)
+        {
+            var rock = Instantiate(rockPrefab, handPos.position, Quaternion.identity);
+            rock.GetComponent<Rock>().target = attackTarget;
         }
     }
 }
