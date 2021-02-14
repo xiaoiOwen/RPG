@@ -896,4 +896,4 @@ MonoBehaviour:
     type: 3}
   barPoint: {fileID: 4861473369743101797}
   alwaysVisible: 0
-  visibleTime: 5
+  visibleTime: 20

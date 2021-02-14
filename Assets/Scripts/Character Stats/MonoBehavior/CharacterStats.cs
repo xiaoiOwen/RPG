@@ -64,7 +64,10 @@ public class CharacterStats : MonoBehaviour
 
         // 更新血量UI
         UpdateHealthBarOnAttack ? .Invoke(CurrentHealth, MaxHealth);
-        //TODO: 更新经验
+        // 更新经验
+        if (CurrentHealth <= 0)
+            attacker.characterData.UpdateExp(characterData.killPoint);
+        
     }
 
     // Damage 伤害值, 函数重载
@@ -82,7 +85,9 @@ public class CharacterStats : MonoBehaviour
 
         // 更新血量UI
         UpdateHealthBarOnAttack ? .Invoke(CurrentHealth, MaxHealth);
-        // //TODO: 更新经验
+        // // 更新经验
+        // if (CurrentHealth <= 0)
+        //     attacker.characterData.UpdateExp(characterData.killPoint);
     }
 
     private int CurrentDamage()

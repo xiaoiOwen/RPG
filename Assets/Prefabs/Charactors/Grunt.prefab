@@ -837,7 +837,7 @@ MonoBehaviour:
     type: 3}
   barPoint: {fileID: 55963248964580568}
   alwaysVisible: 0
-  visibleTime: 5
+  visibleTime: 10
 --- !u!1 &2164761077027448571
 GameObject:
   m_ObjectHideFlags: 0

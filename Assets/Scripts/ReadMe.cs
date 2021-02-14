@@ -13,6 +13,7 @@ using UnityEngine;
 // 第20讲 泛型单例模式
 // 第21讲 观察者模式
 // 第27讲 粒子系统
+// 第28讲 UI血条，计时器
 public class ReadMe : MonoBehaviour
 {
     // Start is called before the first frame update
