@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6532740251639707768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153496843063460582}
+  m_Layer: 7
+  m_Name: HealthBar Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153496843063460582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532740251639707768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8739764539413876516}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8744623109810096414
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +75,8 @@ GameObject:
   - component: {fileID: 8743944831347434076}
   - component: {fileID: 8743944831347434078}
   - component: {fileID: 8743944831347434077}
+  - component: {fileID: 2888717304790896754}
+  - component: {fileID: -1551300251842978174}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
@@ -65,6 +97,7 @@ Transform:
   m_Children:
   - {fileID: 8743543205788391890}
   - {fileID: 8739680724673139442}
+  - {fileID: 153496843063460582}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -81.936, z: 0}
@@ -113,6 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightRadius: 8
+  isGuard: 0
+  lookAtTime: 0
+  patrolRange: 0
 --- !u!195 &8743944831347434077
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -135,6 +171,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2888717304790896754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744694097705345288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec89c1ec5b5379a4f9a29a6afb2c74a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  templateData: {fileID: 0}
+  characterData: {fileID: 0}
+  attackData: {fileID: 0}
+  isCritical: 0
+--- !u!114 &-1551300251842978174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744694097705345288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9860e9a819b18d4189338b34388aff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthUIPrefab: {fileID: 2177825308346832248, guid: 05d1af7576eab224ba45bd3745064e2f,
+    type: 3}
+  barPoint: {fileID: 153496843063460582}
+  alwaysVisible: 0
+  visibleTime: 3
 --- !u!1 &8744960168235582760
 GameObject:
   m_ObjectHideFlags: 0

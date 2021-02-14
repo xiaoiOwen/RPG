@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    public event Action<int, int> UpdateHealthBarOnAttack;
+
     public CharacterData_So templateData;
 
     public CharacterData_So characterData;
@@ -59,7 +62,8 @@ public class CharacterStats : MonoBehaviour
             defener.GetComponent<Animator>().SetTrigger("Hit");
         }
 
-        //TODO: 更新血量UI
+        // 更新血量UI
+        UpdateHealthBarOnAttack ? .Invoke(CurrentHealth, MaxHealth);
         //TODO: 更新经验
     }
 
@@ -76,7 +80,8 @@ public class CharacterStats : MonoBehaviour
         //     defener.GetComponent<Animator>().SetTrigger("Hit");
         // }
 
-        // //TODO: 更新血量UI
+        // 更新血量UI
+        UpdateHealthBarOnAttack ? .Invoke(CurrentHealth, MaxHealth);
         // //TODO: 更新经验
     }
 
