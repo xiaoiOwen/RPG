@@ -85,9 +85,9 @@ public class CharacterStats : MonoBehaviour
 
         // 更新血量UI
         UpdateHealthBarOnAttack ? .Invoke(CurrentHealth, MaxHealth);
-        // // 更新经验
-        // if (CurrentHealth <= 0)
-        //     attacker.characterData.UpdateExp(characterData.killPoint);
+        // 更新经验
+        if (CurrentHealth <= 0)
+            GameManager.Instance.playerStats.characterData.UpdateExp(characterData.killPoint);
     }
 
     private int CurrentDamage()
