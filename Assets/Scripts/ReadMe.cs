@@ -14,6 +14,7 @@ using UnityEngine;
 // 第21讲 观察者模式
 // 第27讲 粒子系统
 // 第28讲 UI血条，计时器
+// 第30讲 在屏幕左上角显示玩家登记、血条、经验条信息
 public class ReadMe : MonoBehaviour
 {
     // Start is called before the first frame update
