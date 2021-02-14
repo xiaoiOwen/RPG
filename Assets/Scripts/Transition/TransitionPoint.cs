@@ -16,4 +16,29 @@ public class TransitionPoint : MonoBehaviour
 
     public TransitionDestination.DestinationTag destinationTag;
 
+    // 能不能传送
+    private bool canTrans;
+
+    void Update()
+    {
+        // if (Input.GetKeyDown(KeyCode.E) && canTrans)
+        if (canTrans)
+        {
+            // SceneController 传送
+            SceneController.Instance.TransitionToDestination(this);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            canTrans = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            canTrans = false;
+    }
+
 }

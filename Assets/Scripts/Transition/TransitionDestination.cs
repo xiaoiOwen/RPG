@@ -12,18 +12,5 @@ public class TransitionDestination : MonoBehaviour
 
     public DestinationTag destinationTag;
 
-    // 能不能传送
-    private bool canTrans;
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            canTrans = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            canTrans = false;
-    }
 }
